@@ -1,16 +1,15 @@
-# Variation 2: Ledgerwise-Inspired
+# Variation 2: Modern Scroll
 
 **Status:** ✅ Complete  
 **Version:** 1.0  
 **Style:** World-class scroll animations, sophisticated interactions  
-**Inspiration:** Ledgerwise.com  
 **Best For:** Modern, tech-forward positioning with premium feel  
 
 ---
 
 ## 📋 Overview
 
-This variation is a complete recreation of the Ledgerwise design approach, adapted for TruAsset's content and healthcare focus. It features world-class scroll choreography, 3D flip cards, progressive text reveals, and sophisticated animations throughout.
+This variation features modern scroll choreography and sophisticated animations adapted for TruAsset's healthcare focus. It features world-class scroll choreography, 3D flip cards, progressive text reveals, and sophisticated animations throughout.
 
 ### Key Features
 
