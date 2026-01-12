@@ -1173,8 +1173,8 @@ body {
 .dot-grid-pattern {
     position: absolute;
     inset: 0;
-    background-image: radial-gradient(circle, rgba(24, 24, 27, 0.25) 2px, transparent 2px);
-    background-size: 32px 32px;
+    background-image: radial-gradient(circle, rgba(24, 24, 27, 0.35) 2.5px, transparent 2.5px);
+    background-size: 28px 28px;
 }
 
 .word-reveal-sticky {

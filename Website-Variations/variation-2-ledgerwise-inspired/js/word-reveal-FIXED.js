@@ -92,11 +92,11 @@
             if (scrollProgress < 0.40) {
                 gridOpacity = 0;
             } else if (scrollProgress < 0.50) {
-                gridOpacity = ((scrollProgress - 0.40) / 0.10) * 0.5; // 0 to 0.5 over 40-50%
+                gridOpacity = ((scrollProgress - 0.40) / 0.10) * 0.65; // 0 to 0.65 over 40-50%
             } else if (scrollProgress > 0.98) {
-                gridOpacity = Math.max(0, 0.5 * (1 - ((scrollProgress - 0.98) / 0.02)));
+                gridOpacity = Math.max(0, 0.65 * (1 - ((scrollProgress - 0.98) / 0.02)));
             } else {
-                gridOpacity = 0.5; // Stay at 0.5 until 98% (more prominent)
+                gridOpacity = 0.65; // Stay at 0.65 until 98% (more prominent)
             }
             dotGrid.style.setProperty('opacity', gridOpacity.toFixed(2), 'important');
         }
