@@ -33,6 +33,11 @@
     const videoSection = document.querySelector('.video-section');
     const scrollIndicator = document.querySelector('.scroll-indicator');
     
+    // Gradient layers
+    const gradientInitial = document.querySelector('[data-gradient="initial"]');
+    const gradientConvergence = document.querySelector('[data-gradient="convergence"]');
+    const gradientFinal = document.querySelector('[data-gradient="final"]');
+    
     console.log('✅ Elements found:', {
         heroContent: !!heroContent,
         appMockup: !!appMockup,
@@ -96,22 +101,16 @@
             heroContent.style.transform = `scale(${textScale})`;
         }
         
-        // === APP MOCKUP - FULLY BIDIRECTIONAL ===
+        // === APP MOCKUP - FADE ONLY (No scale down) ===
         let appY, appScale, appOpacity;
         if (appMockup) {
             // Y position: Slide up 0-10%, then stay at 0
             appY = Math.max(0, Math.min(60, interpolate(progress, [0, 0.10], [60, 0])));
             
-            // Scale: 0.9 → 0.85 (0-10%), hold, then 0.85 → 0.6 (48-58%)
-            if (progress < 0.10) {
-                appScale = interpolate(progress, [0, 0.10], [0.9, 0.85]);
-            } else if (progress < 0.48) {
-                appScale = 0.85; // Hold
-            } else {
-                appScale = Math.max(0.6, Math.min(0.85, interpolate(progress, [0.48, 0.58], [0.85, 0.6])));
-            }
+            // Scale: 0.9 → 0.85 during slide up, then HOLD at 0.85 (no scale down!)
+            appScale = Math.max(0.85, Math.min(0.9, interpolate(progress, [0, 0.10], [0.9, 0.85])));
             
-            // Opacity: 1 until 48%, then fade 48-58%
+            // Opacity: 1 until 48%, then JUST FADE (no scaling) 48-58%
             appOpacity = Math.max(0, Math.min(1, interpolate(progress, [0.48, 0.58], [1, 0])));
             
             appMockup.style.transform = `translate(-50%, calc(-50% + ${appY}vh)) scale(${appScale})`;
@@ -170,29 +169,31 @@
             icon.style.opacity = iconOpacity;
         });
         
-        // === VIDEO - FULLY BIDIRECTIONAL ===
+        // === VIDEO - Start AFTER app fades (58%+) ===
         let videoOpacity, videoScale, videoY;
         if (videoSection) {
-            // Opacity: Fade in 48-60%, hold 60-92%, scroll visible 92-98%, fade 98-100%
-            if (progress < 0.48) {
-                videoOpacity = 0;
-            } else if (progress < 0.60) {
-                videoOpacity = Math.max(0, Math.min(1, interpolate(progress, [0.48, 0.60], [0, 1])));
-            } else if (progress <= 0.98) {
+            // Opacity: Hidden until 58%, then fade in 58-68%, hold, scroll up, fade out
+            if (progress < 0.58) {
+                videoOpacity = 0; // Hidden while app is visible/fading
+            } else if (progress < 0.68) {
+                videoOpacity = Math.max(0, Math.min(1, interpolate(progress, [0.58, 0.68], [0, 1])));
+            } else if (progress <= 0.92) {
                 videoOpacity = 1;
+            } else if (progress <= 0.98) {
+                videoOpacity = 1; // Stay visible while scrolling up
             } else {
                 videoOpacity = Math.max(0, Math.min(1, interpolate(progress, [0.98, 1.00], [1, 0])));
             }
             
-            // Scale: 0.5 → 0.75 over 50-70%, then hold
-            videoScale = Math.max(0.5, Math.min(0.75, interpolate(progress, [0.50, 0.70], [0.5, 0.75])));
+            // Scale: Start at 58%, scale up 58-75%
+            if (progress < 0.58) {
+                videoScale = 0.5;
+            } else {
+                videoScale = Math.max(0.5, Math.min(0.75, interpolate(progress, [0.58, 0.75], [0.5, 0.75])));
+            }
             
             // Y: Scroll up 92-98%
-            if (progress < 0.92) {
-                videoY = 0;
-            } else {
-                videoY = Math.max(-100, Math.min(0, interpolate(progress, [0.92, 0.98], [0, -100])));
-            }
+            videoY = Math.max(-100, Math.min(0, interpolate(progress, [0.92, 0.98], [0, -100])));
             
             videoSection.style.opacity = videoOpacity;
             videoSection.style.transform = `scale(${videoScale}) translateY(${videoY}vh)`;
