@@ -401,7 +401,6 @@ body {
     width: 100%;
     height: auto;
     border-radius: var(--radius-2xl);
-    box-shadow: var(--shadow-2xl);
     display: block;
 }
 
@@ -729,14 +728,15 @@ body {
     background: var(--color-background);
     border-radius: var(--radius-2xl);
     overflow: hidden;
-    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-border);
     transition: all var(--transition-base);
     height: 100%;
+    transform: scale(1);
 }
 
 .solution-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-2xl);
+    transform: scale(0.95);
+    border: 2px solid var(--color-primary);
 }
 
 .solution-image {

@@ -1,289 +1,240 @@
 /**
- * Hero Scroll Animation - Ledgerwise-Inspired
- * Multi-phase scroll choreography with app mockup, streams, and icons
+ * Hero Scroll Animation - Ledgerwise-Exact Recreation
+ * Version: 2026-01-12-FIXED
  */
 
 (function() {
     'use strict';
     
-    const { ScrollAnimations } = window;
-    const { interpolate, quadraticBezier, prefersReducedMotion } = ScrollAnimations;
+    console.log('🎬 Hero Animation - FIXED VERSION v2.0');
     
-    // Skip animations if user prefers reduced motion
+    const { ScrollAnimations } = window;
+    const { interpolate, prefersReducedMotion } = ScrollAnimations;
+    
     if (prefersReducedMotion()) {
-        console.log('⏸️ Scroll animations disabled (prefers-reduced-motion)');
+        console.log('⏸️ Animations disabled');
         return;
     }
     
     // Get elements
     const heroContainer = document.querySelector('[data-scroll-section="hero"]');
-    if (!heroContainer) return;
+    if (!heroContainer) {
+        console.error('❌ Hero container not found');
+        return;
+    }
     
-    const appMockup = document.querySelector('.app-mockup');
     const heroContent = document.querySelector('.hero-content');
+    const appMockup = document.querySelector('.app-mockup');
+    const heroStickyWrapper = document.querySelector('.hero-sticky-wrapper');
     const streams = document.querySelector('.connection-streams');
-    const stakeholderIcons = document.querySelector('.stakeholder-icons');
-    const laptopGlow = document.querySelector('.laptop-glow');
-    
-    // Gradient layers
-    const gradientInitial = document.querySelector('[data-gradient="initial"]');
-    const gradientConvergence = document.querySelector('[data-gradient="convergence"]');
-    const gradientFinal = document.querySelector('[data-gradient="final"]');
-    
-    // Stream paths and icons
     const streamPaths = document.querySelectorAll('.stream-path');
     const icons = document.querySelectorAll('[data-icon]');
+    const laptopGlow = document.querySelector('.laptop-glow');
+    const videoSection = document.querySelector('.video-section');
+    const scrollIndicator = document.querySelector('.scroll-indicator');
     
-    // Create scroll tracker
-    const tracker = new ScrollAnimations.ScrollProgressTracker(heroContainer, {
-        start: 'start start',
-        end: 'end start'
+    console.log('✅ Elements found:', {
+        heroContent: !!heroContent,
+        appMockup: !!appMockup,
+        streams: !!streams,
+        videoSection: !!videoSection
     });
     
-    // Bezier curve points for icon paths (viewport percentage coordinates)
-    const iconPaths = {
-        1: {
-            // Top-left: M 0 150 Q 150 150, 250 250 T 500 300
-            points: [
-                { x: 0, y: 25 },      // Start (0%, 25%)
-                { x: 15, y: 25 },     // Control 1
-                { x: 25, y: 42 },     // Control 2
-                { x: 50, y: 50 }      // End (center)
-            ]
-        },
-        2: {
-            // Top-right: M 1000 120 Q 850 120, 750 220 T 500 300
-            points: [
-                { x: 100, y: 20 },    // Start (100%, 20%)
-                { x: 85, y: 20 },     // Control 1
-                { x: 75, y: 37 },     // Control 2
-                { x: 50, y: 50 }      // End (center)
-            ]
-        },
-        3: {
-            // Bottom-left: M 0 480 Q 150 480, 250 380 T 500 300
-            points: [
-                { x: 0, y: 80 },      // Start (0%, 80%)
-                { x: 15, y: 80 },     // Control 1
-                { x: 25, y: 63 },     // Control 2
-                { x: 50, y: 50 }      // End (center)
-            ]
-        },
-        4: {
-            // Bottom-right: M 1000 450 Q 850 450, 750 370 T 500 300
-            points: [
-                { x: 100, y: 75 },    // Start (100%, 75%)
-                { x: 85, y: 75 },     // Control 1
-                { x: 75, y: 62 },     // Control 2
-                { x: 50, y: 50 }      // End (center)
-            ]
-        }
-    };
-    
-    // Get video section for scale-in effect
-    const videoSection = document.querySelector('[data-scroll-section="video"]');
-    const videoContainer = document.querySelector('.video-container');
-    
-    // Track if user has scrolled yet
-    let userHasScrolled = false;
-    let scrollCheckInterval;
-    
-    // Force hero visible on page load with !important
+    // IMMEDIATELY make elements visible
     if (heroContent) {
-        heroContent.style.setProperty('opacity', '1', 'important');
-        heroContent.style.setProperty('transform', 'scale(1)', 'important');
+        heroContent.style.opacity = '1';
+        heroContent.style.visibility = 'visible';
+        heroContent.style.display = 'flex';
+        console.log('✅ Hero content forced visible');
     }
     if (appMockup) {
-        appMockup.style.setProperty('opacity', '1', 'important');
-        appMockup.style.setProperty('transform', 'translate(-50%, -50%) scale(0.9)', 'important');
+        appMockup.style.opacity = '1';
+        appMockup.style.visibility = 'visible';
+        appMockup.style.display = 'block';
+        console.log('✅ App mockup forced visible');
+    }
+    if (videoSection) {
+        videoSection.style.opacity = '0';
+        console.log('✅ Video section hidden initially');
     }
     
-    // Listen for actual scroll events
-    let scrollTimeout;
-    window.addEventListener('scroll', () => {
-        userHasScrolled = true;
-        clearInterval(scrollCheckInterval);
-    }, { once: true, passive: true });
+    // No debug panel (removed per user request)
     
-    // Check if user has scrolled, if not keep hero visible
-    scrollCheckInterval = setInterval(() => {
-        if (!userHasScrolled) {
-            if (heroContent) {
-                heroContent.style.setProperty('opacity', '1', 'important');
-                heroContent.style.setProperty('transform', 'scale(1)', 'important');
-            }
-            if (appMockup) {
-                appMockup.style.setProperty('opacity', '1', 'important');
-                appMockup.style.setProperty('transform', 'translate(-50%, -50%) scale(0.9)', 'important');
-            }
-        }
-    }, 50);
+    // DON'T use ScrollProgressTracker - it's broken. Use manual calculation instead.
+    console.log('⚠️ Using manual scroll calculation (tracker was broken)');
     
-    // Start tracker only after user scrolls
-    tracker.onChange((progress) => {
-        // Don't do anything until user has actually scrolled
-        if (!userHasScrolled) {
-            return;
-        }
+    // Animation loop with manual progress calculation
+    let frame = 0;
+    
+    function updateHeroAnimation() {
+        frame++;
         
-        // Don't animate until meaningful progress
-        if (progress < 0.02) {
-            return;
-        }
+        // MANUAL PROGRESS CALCULATION
+        const scrollY = window.scrollY || window.pageYOffset;
+        const containerRect = heroContainer.getBoundingClientRect();
+        const containerHeight = heroContainer.offsetHeight;
+        const viewportHeight = window.innerHeight;
         
-        updateHeroAnimation(progress);
+        // Progress = how far we've scrolled through the container
+        // 0% = container top at viewport top
+        // 100% = container bottom at viewport top (container has scrolled past)
+        const containerTopRelativeToViewportTop = containerRect.top;
+        const scrollThroughContainer = -containerTopRelativeToViewportTop;
+        const totalScrollableDistance = containerHeight - viewportHeight;
         
-            // Video scales in while app mockup is still visible (50-75%)
-            // Starts scaling while app is still at center, takes over as app zooms out
-            if (videoContainer) {
-                let videoOpacity, videoScale;
-                if (progress < 0.50) {
-                    videoOpacity = 0;
-                    videoScale = 0.92;
-                } else if (progress > 0.75) {
-                    videoOpacity = 1;
-                    videoScale = 1;
-                } else {
-                    const videoProgress = (progress - 0.50) / 0.25;
-                    videoOpacity = videoProgress;
-                    videoScale = 0.92 + (videoProgress * 0.08);
-                }
-                videoContainer.style.opacity = videoOpacity.toFixed(2);
-                videoContainer.style.transform = `scale(${videoScale.toFixed(2)})`;
-            }
-    });
-    
-    console.log('✅ Hero initialized - will animate only after user scrolls');
-    
-    function updateHeroAnimation(progress) {
-        // Clamp progress between 0 and 1
+        let progress = scrollThroughContainer / totalScrollableDistance;
         progress = Math.max(0, Math.min(1, progress));
         
-        // HERO CONTENT: Keep visible always (no fade out for now)
+        // === HERO TEXT (Fades 0-8%, Shrinks 0-12%) - BIDIRECTIONAL ===
+        let textOpacity = 1;
         if (heroContent) {
-            heroContent.style.setProperty('opacity', '1', 'important');
-            heroContent.style.setProperty('transform', 'scale(1)', 'important');
+            // Fade out/in based on progress (works both ways!)
+            textOpacity = Math.max(0, Math.min(1, interpolate(progress, [0, 0.08], [1, 0])));
+            // Shrink/grow based on progress
+            const textScale = Math.max(0.6, Math.min(1, interpolate(progress, [0, 0.12], [1, 0.6])));
+            heroContent.style.opacity = textOpacity;
+            heroContent.style.transform = `scale(${textScale})`;
         }
         
-        // APP MOCKUP: Fades IN, slides up, stays visible, then zooms out late
-        // Phase 1 (0-8%): Fade IN from 0 to 1
-        // Phase 2 (8-15%): Slide up to center
-        // Phase 3 (15-60%): Hold at center (stays visible while video appears)
-        // Phase 4 (60-68%): Zoom out and fade
+        // === APP MOCKUP - FULLY BIDIRECTIONAL ===
+        let appY, appScale, appOpacity;
+        if (appMockup) {
+            // Y position: Slide up 0-10%, then stay at 0
+            appY = Math.max(0, Math.min(60, interpolate(progress, [0, 0.10], [60, 0])));
+            
+            // Scale: 0.9 → 0.85 (0-10%), hold, then 0.85 → 0.6 (48-58%)
+            if (progress < 0.10) {
+                appScale = interpolate(progress, [0, 0.10], [0.9, 0.85]);
+            } else if (progress < 0.48) {
+                appScale = 0.85; // Hold
+            } else {
+                appScale = Math.max(0.6, Math.min(0.85, interpolate(progress, [0.48, 0.58], [0.85, 0.6])));
+            }
+            
+            // Opacity: 1 until 48%, then fade 48-58%
+            appOpacity = Math.max(0, Math.min(1, interpolate(progress, [0.48, 0.58], [1, 0])));
+            
+            appMockup.style.transform = `translate(-50%, calc(-50% + ${appY}vh)) scale(${appScale})`;
+            appMockup.style.opacity = appOpacity;
+        }
         
-        // App mockup is now inline below buttons - no animations needed
-        // It stays visible as part of hero content flow
-        
-        // Phase 2: Streams appear and animate (10-55%)
-        const streamsOpacity = interpolate(progress, [0.10, 0.15, 0.52, 0.57], [0, 1, 1, 0], 'easeInOut');
-        
+        // === STREAMS - BIDIRECTIONAL ===
         if (streams) {
+            let streamsOpacity;
+            // Fade in 10-15%, visible 15-52%, fade out 52-57%
+            if (progress < 0.10) {
+                streamsOpacity = 0;
+            } else if (progress < 0.15) {
+                streamsOpacity = interpolate(progress, [0.10, 0.15], [0, 1]);
+            } else if (progress <= 0.52) {
+                streamsOpacity = 1;
+            } else if (progress <= 0.57) {
+                streamsOpacity = Math.max(0, interpolate(progress, [0.52, 0.57], [1, 0]));
+            } else {
+                streamsOpacity = 0;
+            }
             streams.style.opacity = streamsOpacity;
         }
         
-        // Animate stream paths (stroke-dasharray)
-        const streamProgress = interpolate(progress, [0.12, 0.52], [0, 1], 'easeInOut');
-        
-        streamPaths.forEach((path, index) => {
+        // === STREAM PATHS ===
+        streamPaths.forEach((path, idx) => {
             const length = path.getTotalLength();
-            const offset = interpolate(progress, [0.10 + (index * 0.05), 0.55 + (index * 0.05)], [length, 0], 'easeInOut');
-            path.style.strokeDasharray = `${length}`;
-            path.style.strokeDashoffset = offset;
+            path.style.strokeDasharray = length;
+            
+            const ranges = [[0.12, 0.52], [0.12, 0.54], [0.15, 0.56], [0.18, 0.58]];
+            const range = ranges[idx] || [0.12, 0.52];
+            
+            const drawProg = Math.max(0, Math.min(1, interpolate(progress, range, [0, 1])));
+            path.style.strokeDashoffset = length * (1 - drawProg);
         });
         
-        // Phase 3: Icons travel along paths (35-95%)
-        const iconsOpacity = interpolate(progress, [0.35, 0.43, 0.92, 0.98], [0, 1, 1, 0], 'easeInOut');
-        
-        if (stakeholderIcons) {
-            stakeholderIcons.style.opacity = iconsOpacity;
-        }
-        
-        icons.forEach((icon, index) => {
-            const iconNum = index + 1;
-            const path = iconPaths[iconNum];
-            if (!path) return;
+        // === ICONS ===
+        icons.forEach((icon, idx) => {
+            const opacityRanges = [
+                [0.35, 0.43, 0.92, 0.98],
+                [0.40, 0.48, 0.94, 0.99],
+                [0.45, 0.53, 0.96, 1.00],
+                [0.50, 0.58, 0.97, 1.00]
+            ];
+            const range = opacityRanges[idx];
             
-            // Icon starts moving later (staggered)
-            const iconProgress = interpolate(progress, [0.35 + (index * 0.05), 0.95 + (index * 0.01)], [0, 1], 'easeInOut');
+            let iconOpacity = 0;
+            if (progress >= range[0] && progress < range[1]) {
+                iconOpacity = interpolate(progress, [range[0], range[1]], [0, 1]);
+            } else if (progress >= range[1] && progress <= range[2]) {
+                iconOpacity = 1;
+            } else if (progress > range[2] && progress <= range[3]) {
+                iconOpacity = interpolate(progress, [range[2], range[3]], [1, 0]);
+            }
             
-            // Calculate position along bezier curve
-            const t = iconProgress;
-            const u = 1 - t;
-            const tt = t * t;
-            const uu = u * u;
-            
-            // Cubic bezier calculation
-            const x = uu * u * path.points[0].x + 
-                     3 * uu * t * path.points[1].x + 
-                     3 * u * tt * path.points[2].x + 
-                     tt * t * path.points[3].x;
-                     
-            const y = uu * u * path.points[0].y + 
-                     3 * uu * t * path.points[1].y + 
-                     3 * u * tt * path.points[2].y + 
-                     tt * t * path.points[3].y;
-            
-            icon.style.left = `${x}%`;
-            icon.style.top = `${y}%`;
+            icon.style.opacity = iconOpacity;
         });
         
-        // Laptop glow when icons converge (35-58%)
-        const glowOpacity = interpolate(progress, [0.35, 0.42, 0.52, 0.58], [0, 1, 1, 0], 'easeInOut');
-        
-        if (laptopGlow) {
-            laptopGlow.style.opacity = glowOpacity;
-        }
-        
-        // Background gradients
-        // Initial gradient (10-18%)
-        if (gradientInitial) {
-            const initialOpacity = interpolate(progress, [0.10, 0.18], [0, 1], 'easeInOut');
-            gradientInitial.style.opacity = initialOpacity;
-        }
-        
-        // Convergence glow (32-58%)
-        if (gradientConvergence) {
-            const convergenceOpacity = interpolate(progress, [0.32, 0.42, 0.52, 0.58], [0, 1, 1, 0], 'easeInOut');
-            gradientConvergence.style.opacity = convergenceOpacity;
-            
-            // Create blue glow effect
-            if (convergenceOpacity > 0) {
-                const glowHTML = `
-                    <div style="
-                        position: absolute;
-                        left: 50%;
-                        top: 50%;
-                        transform: translate(-50%, -50%);
-                        width: 150vw;
-                        height: 150vh;
-                        background: radial-gradient(ellipse at center, rgba(57, 128, 165, 0.4) 0%, rgba(57, 128, 165, 0.25) 25%, rgba(57, 128, 165, 0.1) 50%, transparent 70%);
-                    "></div>
-                    <div style="
-                        position: absolute;
-                        left: 50%;
-                        top: 0;
-                        transform: translateX(-50%);
-                        width: 100vw;
-                        height: 60vh;
-                        background: radial-gradient(ellipse at top, rgba(57, 128, 165, 0.2) 0%, transparent 70%);
-                    "></div>
-                `;
-                if (gradientConvergence.innerHTML === '') {
-                    gradientConvergence.innerHTML = glowHTML;
-                }
+        // === VIDEO - FULLY BIDIRECTIONAL ===
+        let videoOpacity, videoScale, videoY;
+        if (videoSection) {
+            // Opacity: Fade in 48-60%, hold 60-92%, scroll visible 92-98%, fade 98-100%
+            if (progress < 0.48) {
+                videoOpacity = 0;
+            } else if (progress < 0.60) {
+                videoOpacity = Math.max(0, Math.min(1, interpolate(progress, [0.48, 0.60], [0, 1])));
+            } else if (progress <= 0.98) {
+                videoOpacity = 1;
+            } else {
+                videoOpacity = Math.max(0, Math.min(1, interpolate(progress, [0.98, 1.00], [1, 0])));
             }
+            
+            // Scale: 0.5 → 0.75 over 50-70%, then hold
+            videoScale = Math.max(0.5, Math.min(0.75, interpolate(progress, [0.50, 0.70], [0.5, 0.75])));
+            
+            // Y: Scroll up 92-98%
+            if (progress < 0.92) {
+                videoY = 0;
+            } else {
+                videoY = Math.max(-100, Math.min(0, interpolate(progress, [0.92, 0.98], [0, -100])));
+            }
+            
+            videoSection.style.opacity = videoOpacity;
+            videoSection.style.transform = `scale(${videoScale}) translateY(${videoY}vh)`;
+            videoSection.style.pointerEvents = videoOpacity > 0.1 ? 'auto' : 'none';
         }
         
-        // Final blue screen (48-85%)
-        if (gradientFinal) {
-            const finalOpacity = interpolate(progress, [0.48, 0.55, 0.75, 0.85], [0, 1, 1, 0], 'easeInOut');
-            gradientFinal.style.opacity = finalOpacity;
-            
-            if (gradientFinal.style.background === '') {
-                gradientFinal.style.background = 'linear-gradient(135deg, #3980A5 0%, #2d6a8a 50%, #245770 100%)';
-            }
+        // === HERO SECTION - BIDIRECTIONAL scroll with video ===
+        if (heroStickyWrapper) {
+            const heroY = Math.max(-100, Math.min(0, interpolate(progress, [0.92, 0.98], [0, -100])));
+            heroStickyWrapper.style.transform = `translateY(${heroY}vh)`;
         }
+        
+        // === SCROLL INDICATOR - BIDIRECTIONAL ===
+        if (scrollIndicator) {
+            let indOpacity = 0;
+            if (progress < 0.68) {
+                indOpacity = 0;
+            } else if (progress < 0.72) {
+                indOpacity = Math.max(0, Math.min(1, interpolate(progress, [0.68, 0.72], [0, 1])));
+            } else if (progress <= 0.80) {
+                indOpacity = 1;
+            } else if (progress <= 0.85) {
+                indOpacity = Math.max(0, Math.min(1, interpolate(progress, [0.80, 0.85], [1, 0])));
+            } else {
+                indOpacity = 0;
+            }
+            scrollIndicator.style.opacity = indOpacity;
+        }
+        
+        // Log to console (no debug panel)
+        if (frame <= 3 || frame % 90 === 0) {
+            const phase = progress <= 0.10 ? 'Entry' : progress <= 0.48 ? 'APP HOLDS' : progress <= 0.70 ? 'Transition' : progress <= 0.85 ? 'Video' : 'Exit';
+            console.log(`📊 ${(progress * 100).toFixed(1)}% | ${phase} | Text: ${textOpacity.toFixed(2)} | App: ${appOpacity.toFixed(2)} | Video: ${videoOpacity.toFixed(2)}`);
+        }
+        
+        // Continue animation loop
+        requestAnimationFrame(updateHeroAnimation);
     }
     
-    console.log('✨ Hero scroll animation initialized');
+    // Start the animation loop
+    requestAnimationFrame(updateHeroAnimation);
+    
+    console.log('✅ Hero animation loop started');
+    console.log('📊 Progress logged to console (no debug panel)');
 })();

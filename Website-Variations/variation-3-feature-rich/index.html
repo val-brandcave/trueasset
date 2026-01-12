@@ -60,49 +60,80 @@
         
         <!-- Hero Section -->
         <section class="hero">
+            <!-- Animated Data Visualization Background -->
+            <div class="data-viz-background" aria-hidden="true">
+                <!-- Grid pattern with data points -->
+                <div class="data-grid-pattern"></div>
+                
+                <!-- Animated line chart (top-left) -->
+                <svg class="viz-chart viz-line-chart" viewBox="0 0 200 100" preserveAspectRatio="none">
+                    <defs>
+                        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#0069BD" stop-opacity="0.6" />
+                            <stop offset="100%" stop-color="#10B981" stop-opacity="0.3" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Animated path drawing -->
+                    <path class="chart-line" 
+                          d="M 0 80 L 30 65 L 60 70 L 90 45 L 120 50 L 150 30 L 180 25 L 200 20"
+                          fill="none"
+                          stroke="url(#lineGradient)"
+                          stroke-width="2"
+                          pathLength="100"/>
+                    <!-- Data points -->
+                    <circle class="data-point" cx="30" cy="65" r="3" fill="#0069BD" opacity="0.7"/>
+                    <circle class="data-point" cx="60" cy="70" r="3" fill="#0069BD" opacity="0.7"/>
+                    <circle class="data-point" cx="90" cy="45" r="3" fill="#0069BD" opacity="0.7"/>
+                    <circle class="data-point" cx="120" cy="50" r="3" fill="#0069BD" opacity="0.7"/>
+                    <circle class="data-point" cx="150" cy="30" r="3" fill="#10B981" opacity="0.7"/>
+                </svg>
+                
+                <!-- Animated bar chart (top-right) -->
+                <svg class="viz-chart viz-bar-chart" viewBox="0 0 120 80" preserveAspectRatio="xMidYMid meet">
+                    <rect class="chart-bar bar-1" x="10" y="40" width="18" height="40" fill="#0069BD" opacity="0.4"/>
+                    <rect class="chart-bar bar-2" x="32" y="25" width="18" height="55" fill="#0069BD" opacity="0.5"/>
+                    <rect class="chart-bar bar-3" x="54" y="35" width="18" height="45" fill="#8B5CF6" opacity="0.4"/>
+                    <rect class="chart-bar bar-4" x="76" y="15" width="18" height="65" fill="#10B981" opacity="0.5"/>
+                    <rect class="chart-bar bar-5" x="98" y="30" width="18" height="50" fill="#0069BD" opacity="0.4"/>
+                </svg>
+                
+                <!-- Pie chart segments (bottom-right) -->
+                <svg class="viz-chart viz-pie-chart" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+                    <circle class="pie-bg" cx="50" cy="50" r="40" fill="none" stroke="#E5E7EB" stroke-width="12" opacity="0.3"/>
+                    <circle class="pie-segment segment-1" cx="50" cy="50" r="40" 
+                            fill="none" stroke="#0069BD" stroke-width="12" 
+                            stroke-dasharray="251.2" stroke-dashoffset="62.8"
+                            transform="rotate(-90 50 50)" opacity="0.6"/>
+                    <circle class="pie-segment segment-2" cx="50" cy="50" r="40" 
+                            fill="none" stroke="#10B981" stroke-width="12" 
+                            stroke-dasharray="251.2" stroke-dashoffset="125.6"
+                            transform="rotate(0 50 50)" opacity="0.5"/>
+                    <circle class="pie-segment segment-3" cx="50" cy="50" r="40" 
+                            fill="none" stroke="#8B5CF6" stroke-width="12" 
+                            stroke-dasharray="251.2" stroke-dashoffset="188.4"
+                            transform="rotate(90 50 50)" opacity="0.4"/>
+                </svg>
+                
+                <!-- Floating data points -->
+                <div class="floating-data-points">
+                    <div class="data-point-float dp-1"></div>
+                    <div class="data-point-float dp-2"></div>
+                    <div class="data-point-float dp-3"></div>
+                    <div class="data-point-float dp-4"></div>
+                    <div class="data-point-float dp-5"></div>
+                </div>
+            </div>
+            
             <div class="hero-grid">
                 <div class="hero-content">
-                    <div class="hero-badge">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
-                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
-                            <path d="M4 22h16"/>
-                            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
-                            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
-                            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
-                        </svg>
-                        #1 CMMS for Healthcare
-                        </div>
-                        <h1 class="hero-title">CMMS Software: HTM Management on the Move</h1>
-                        <p class="hero-description">
-                            TruAsset's computerized maintenance management, or CMMS software, enables you to plan, execute and manage all aspects of your service operations from the palm of your hand.
-                        </p>
-                    <div class="hero-features">
-                        <div class="hero-feature">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                <polyline points="22 4 12 14.01 9 11.01"/>
-                            </svg>
-                            <span>No credit card required</span>
-                        </div>
-                        <div class="hero-feature">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                <polyline points="22 4 12 14.01 9 11.01"/>
-                            </svg>
-                            <span>Setup in minutes</span>
-                        </div>
-                        <div class="hero-feature">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                                <polyline points="22 4 12 14.01 9 11.01"/>
-                            </svg>
-                            <span>24/7 support included</span>
-                        </div>
-                    </div>
+                    <h1 class="hero-title">CMMS Software: HTM Management on the Move</h1>
+                    <p class="hero-description">
+                        TruAsset's computerized maintenance management, or CMMS software, enables you to plan, execute and manage all aspects of your service operations from the palm of your hand.
+                    </p>
+                    
                     <div class="hero-cta">
                         <a href="contact.html" class="btn btn-primary btn-large">Request Demo</a>
-                        <a href="#demo" class="btn btn-secondary btn-large">Watch Video</a>
+                        <button class="btn btn-secondary btn-large" id="open-video-modal">Watch Video</button>
                     </div>
                 </div>
                 <div class="hero-visual">
@@ -111,38 +142,12 @@
                              alt="TruAsset dashboard interface" 
                              class="product-main"
                              loading="eager">
-                        <div class="product-overlay overlay-1">
-                            <div class="overlay-content">
-                                <div class="overlay-icon">📊</div>
-                                <div class="overlay-text">Real-time Analytics</div>
-                            </div>
-                        </div>
-                        <div class="product-overlay overlay-2">
-                            <div class="overlay-content">
-                                <div class="overlay-icon">✓</div>
-                                <div class="overlay-text">98% Uptime</div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- Compliance Logos -->
-        <section class="compliance-section">
-            <div class="container">
-                <h2 class="compliance-title">TruAsset Is in Compliance With Leading Organizations Nationwide</h2>
-                <div class="compliance-logos">
-                    <img src="assets/Compliance Orgs Logos/logo-1.svg" alt="Healthcare compliance organization" loading="lazy">
-                    <img src="assets/Compliance Orgs Logos/logo-2.svg" alt="Healthcare compliance organization" loading="lazy">
-                    <img src="assets/Compliance Orgs Logos/logo-3.svg" alt="Healthcare compliance organization" loading="lazy">
-                    <img src="assets/Compliance Orgs Logos/logo-4.svg" alt="Healthcare compliance organization" loading="lazy">
-                    <img src="assets/Compliance Orgs Logos/logo-5.svg" alt="Healthcare compliance organization" loading="lazy">
-                </div>
-            </div>
-        </section>
-        
-        <!-- Stats Bar -->
+        <!-- Stats Bar (Moved to be directly under hero) -->
         <section class="stats-bar">
             <div class="container">
                 <div class="stats-grid">
@@ -178,43 +183,30 @@
                 </div>
                 
                 <div class="features-tabs">
-                    <div class="tabs-nav">
-                        <button class="tab-button active" data-tab="work-orders">
+                    <div class="tabs-nav" role="tablist">
+                        <button class="tab-button active" role="tab" data-tab="work-orders" aria-selected="true">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
                                 <rect width="20" height="14" x="2" y="6" rx="2"/>
-                                <path d="M9 2v4"/>
-                                <path d="M15 2v4"/>
-                                <path d="M9 14h.01"/>
-                                <path d="M15 14h.01"/>
-                                <path d="M9 18h.01"/>
-                                <path d="M15 18h.01"/>
                             </svg>
                             <span>Work Orders</span>
                         </button>
-                        <button class="tab-button" data-tab="assets">
+                        <button class="tab-button" role="tab" data-tab="assets" aria-selected="false">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72Z"/>
-                                <path d="m14 7 3 3"/>
-                                <path d="M5 6v4"/>
-                                <path d="M19 14v4"/>
-                                <path d="M10 2v2"/>
-                                <path d="M7 8H3"/>
-                                <path d="M21 16h-4"/>
-                                <path d="M11 3H9"/>
                             </svg>
-                            <span>Asset Management</span>
+                            <span>Assets</span>
                         </button>
-                        <button class="tab-button" data-tab="analytics">
+                        <button class="tab-button" role="tab" data-tab="reporting" aria-selected="false">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M3 3v18h18"/>
                                 <path d="M18 17V9"/>
                                 <path d="M13 17V5"/>
                                 <path d="M8 17v-3"/>
                             </svg>
-                            <span>Analytics</span>
+                            <span>Reporting</span>
                         </button>
-                        <button class="tab-button" data-tab="mobile">
+                        <button class="tab-button" role="tab" data-tab="mobile" aria-selected="false">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/>
                                 <path d="M12 18h.01"/>
@@ -224,82 +216,92 @@
                     </div>
                     
                     <div class="tabs-content">
-                        <div class="tab-panel active" id="work-orders">
+                        <div class="tab-panel active" role="tabpanel" id="work-orders">
                             <div class="tab-grid">
                                 <div class="tab-info">
                                     <h3 class="tab-title">Work Order Management</h3>
-                                    <p class="tab-description">No matter what your team is called to do, TruAsset is equipped with the flexibility and ease of use your demanding work order schedule calls for.</p>
+                                    <p class="tab-description">Create, assign, and track work orders with flexibility and ease for your demanding schedule.</p>
                                     <ul class="tab-list">
-                                        <li>Quick work order creation</li>
-                                        <li>Automated assignment rules</li>
-                                        <li>Mobile work order updates</li>
+                                        <li>Quick work order creation and assignment</li>
+                                        <li>Mobile work order updates in real-time</li>
                                         <li>Priority and status tracking</li>
-                                        <li>Detailed work history</li>
                                     </ul>
+                                    <a href="#work-orders-detail" class="tab-cta">Learn More →</a>
                                 </div>
                                 <div class="tab-image">
-                                    <img src="assets/Product Images/work-order-viewed-in-tablet.png" alt="Work order interface" loading="lazy">
+                                    <img src="assets/Product Images/product-vewied-in-tablet-1.png" alt="TruAsset dashboard" loading="lazy">
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="tab-panel" id="assets">
+                        <div class="tab-panel" role="tabpanel" id="assets" hidden>
                             <div class="tab-grid">
                                 <div class="tab-info">
                                     <h3 class="tab-title">Asset Management</h3>
-                                    <p class="tab-description">TruAsset's facility management software gives you the ability to sort, filter, track and manage all assets in a central location.</p>
+                                    <p class="tab-description">Sort, filter, track and manage all assets in a centralized location with complete visibility.</p>
                                     <ul class="tab-list">
-                                        <li>Centralized asset database</li>
-                                        <li>QR code asset tagging</li>
-                                        <li>Maintenance history tracking</li>
-                                        <li>Warranty management</li>
-                                        <li>Asset location tracking</li>
+                                        <li>Centralized asset database with QR tagging</li>
+                                        <li>Complete maintenance history tracking</li>
+                                        <li>Warranty and location management</li>
                                     </ul>
+                                    <a href="#asset-detail" class="tab-cta">Learn More →</a>
                                 </div>
                                 <div class="tab-image">
-                                    <img src="assets/Product Images/product-vewied-in-tablet-1.png" alt="Asset management" loading="lazy">
+                                    <img src="assets/Product Images/product-vewied-in-tablet-1.png" alt="TruAsset dashboard" loading="lazy">
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="tab-panel" id="analytics">
+                        <div class="tab-panel" role="tabpanel" id="reporting" hidden>
                             <div class="tab-grid">
                                 <div class="tab-info">
-                                    <h3 class="tab-title">Reporting</h3>
-                                    <p class="tab-description">The reporting capabilities of TruAsset's facility management system provide the insights and data you need to optimize your operations.</p>
+                                    <h3 class="tab-title">Reporting & Analytics</h3>
+                                    <p class="tab-description">Get the insights and data you need to optimize operations with powerful reporting capabilities.</p>
                                     <ul class="tab-list">
-                                        <li>Real-time dashboards</li>
-                                        <li>Custom report builder</li>
-                                        <li>KPI tracking</li>
-                                        <li>Predictive analytics</li>
-                                        <li>Export to Excel/PDF</li>
+                                        <li>Real-time dashboards and KPI tracking</li>
+                                        <li>Custom report builder with templates</li>
+                                        <li>Export to Excel, PDF, and more</li>
                                     </ul>
+                                    <a href="#reporting-detail" class="tab-cta">Learn More →</a>
                                 </div>
                                 <div class="tab-image">
-                                    <img src="assets/Product Images/product-vewied-in-tablet-2.png" alt="Analytics dashboard" loading="lazy">
+                                    <img src="assets/Product Images/product-vewied-in-tablet-1.png" alt="TruAsset dashboard" loading="lazy">
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="tab-panel" id="mobile">
+                        <div class="tab-panel" role="tabpanel" id="mobile" hidden>
                             <div class="tab-grid">
                                 <div class="tab-info">
                                     <h3 class="tab-title">Mobile Access</h3>
-                                    <p class="tab-description">We made sure TruAsset was accessible for everyone whether you're using a computer, tablet or smartphone. No matter where you find yourself, our CMMS software is always at your fingertips.</p>
+                                    <p class="tab-description">Access TruAsset anywhere on computer, tablet, or smartphone. Always at your fingertips.</p>
                                     <ul class="tab-list">
-                                        <li>Native mobile apps</li>
-                                        <li>Offline mode capability</li>
-                                        <li>Photo attachments</li>
-                                        <li>Barcode/QR scanning</li>
-                                        <li>Push notifications</li>
+                                        <li>Native mobile apps with offline mode</li>
+                                        <li>Photo attachments and barcode scanning</li>
+                                        <li>Push notifications and real-time sync</li>
                                     </ul>
+                                    <a href="#mobile-detail" class="tab-cta">Learn More →</a>
                                 </div>
                                 <div class="tab-image">
-                                    <img src="assets/Product Images/product-screenshot.png" alt="Mobile app" loading="lazy">
+                                    <img src="assets/Product Images/product-vewied-in-tablet-1.png" alt="TruAsset dashboard" loading="lazy">
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Compliance Logos (Moved to be above integrations) -->
+        <section class="compliance-section">
+            <div class="container">
+                <h2 class="compliance-title">TruAsset Is in Compliance With Leading Organizations Nationwide</h2>
+                <div class="compliance-logos">
+                    <img src="assets/Compliance Orgs Logos/logo-1.svg" alt="Healthcare compliance organization" loading="lazy">
+                    <img src="assets/Compliance Orgs Logos/logo-2.svg" alt="Healthcare compliance organization" loading="lazy">
+                    <img src="assets/Compliance Orgs Logos/logo-3.svg" alt="Healthcare compliance organization" loading="lazy">
+                    <img src="assets/Compliance Orgs Logos/logo-4.svg" alt="Healthcare compliance organization" loading="lazy">
+                    <img src="assets/Compliance Orgs Logos/logo-5.svg" alt="Healthcare compliance organization" loading="lazy">
                 </div>
             </div>
         </section>
@@ -417,9 +419,32 @@
         </div>
     </footer>
     
+    <!-- Video Modal -->
+    <div class="video-modal" id="video-modal" aria-hidden="true">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close video">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="modal-video-wrapper">
+                <iframe 
+                    id="modal-video-iframe"
+                    src=""
+                    frameborder="0"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+
     <script src="../shared/js/scroll-animations.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/tabs.js"></script>
     <script src="js/animations.js"></script>
+    <script src="js/video-modal.js"></script>
 </body>
 </html>

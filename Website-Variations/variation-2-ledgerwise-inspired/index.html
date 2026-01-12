@@ -255,26 +255,31 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Video Section (Scales in as hero scrolls out) -->
-        <section class="video-section" data-scroll-section="video">
-            <div class="video-sticky-wrapper">
+            
+            <!-- Video Section - Fixed overlay, scales in as hero scrolls out (Ledgerwise-style) -->
+            <div class="video-section">
                 <div class="video-container">
-                    <div class="video-wrapper">
-                        <iframe 
-                            src="https://player.vimeo.com/video/453088801?h=8d0e8c2e3e&title=0&byline=0&portrait=0"
-                            width="100%"
-                            height="100%"
-                            frameborder="0"
-                            allow="autoplay; fullscreen; picture-in-picture"
-                            allowfullscreen
-                            title="TruAsset Product Overview">
-                        </iframe>
-                    </div>
+                    <iframe 
+                        src="https://player.vimeo.com/video/453088801?h=8d0e8c2e3e&title=0&byline=0&portrait=0"
+                        width="100%"
+                        height="100%"
+                        frameborder="0"
+                        allow="autoplay; fullscreen; picture-in-picture"
+                        allowfullscreen
+                        title="TruAsset Product Demo Video"
+                        loading="lazy">
+                    </iframe>
+                </div>
+                
+                <!-- Scroll indicator -->
+                <div class="scroll-indicator">
+                    <span class="scroll-text">Scroll to See More</span>
+                    <svg class="scroll-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Promises/Compliance Section with Flip Cards -->
         <section class="promises-section" data-scroll-section="promises">
