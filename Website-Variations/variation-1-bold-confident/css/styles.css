@@ -362,7 +362,6 @@ body {
 .hero-cta {
     display: flex;
     gap: var(--space-4);
-    margin-bottom: var(--space-12);
 }
 
 /* Trust Stats */
