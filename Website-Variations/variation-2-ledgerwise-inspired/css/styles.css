@@ -312,7 +312,6 @@ body {
     flex-direction: column;
     gap: var(--space-4);
     width: 100%;
-    margin-bottom: var(--space-16); /* Space before app mockup */
 }
 
 @media (min-width: 640px) {
@@ -320,7 +319,6 @@ body {
         flex-direction: row;
         justify-content: center;
         width: auto;
-        margin-bottom: var(--space-24); /* More space on desktop */
     }
 }
 
@@ -1218,6 +1216,7 @@ body {
     pointer-events: none;
     opacity: 0;
     will-change: opacity;
+    transition: opacity 0.6s ease-in-out; /* Smooth opacity changes */
 }
 
 .dot-grid-pattern {
