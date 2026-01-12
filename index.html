@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TruAsset Homepage Redesign - 4 unique design variations with world-class scroll animations and 95% ADA compliance">
+    <title>TruAsset Redesign Variations - Preview</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #F0F7FF 0%, #FFFFFF 50%, #F0F7FF 100%);
+            padding: 60px 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .logo {
+            height: 60px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            color: #18181b;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 20px;
+            color: #71717a;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #10B981;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .variations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .card {
+            background: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #0069BD, #3399FF);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: #0069BD;
+        }
+        
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .card-badge {
+            display: inline-block;
+            background: #E6F0FF;
+            color: #0069BD;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .card-badge.featured {
+            background: #FFE5CC;
+            color: #F59E0B;
+        }
+        
+        .card h2 {
+            font-size: 24px;
+            color: #18181b;
+            margin-bottom: 12px;
+        }
+        
+        .card p {
+            color: #71717a;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .features {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+        
+        .features li {
+            color: #64748B;
+            font-size: 14px;
+            padding: 6px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10B981;
+            font-weight: bold;
+        }
+        
+        .card a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: #0069BD;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .card a:hover {
+            background: #004A8F;
+            gap: 12px;
+        }
+        
+        .info-section {
+            background: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .info-section h3 {
+            font-size: 24px;
+            color: #18181b;
+            margin-bottom: 16px;
+        }
+        
+        .info-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .info-section li {
+            padding: 8px 0;
+            color: #71717a;
+            padding-left: 24px;
+            position: relative;
+        }
+        
+        .info-section li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #0069BD;
+        }
+        
+        footer {
+            text-align: center;
+            color: #71717a;
+            padding-top: 40px;
+            border-top: 1px solid #E5E7EB;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="Context/Assets/Company Logo/truasset-logo.svg" alt="TruAsset Logo" class="logo">
+            <span class="badge">✨ 4 Design Variations</span>
+            <h1>TruAsset Homepage Redesign</h1>
+            <p class="subtitle">
+                Explore 4 unique design directions, each with world-class scroll animations, 95% ADA compliance, and WordPress-ready code.
+            </p>
+        </header>
+        
+        <div class="variations">
+            <!-- Variation 1 -->
+            <div class="card">
+                <span class="card-badge">Bold & Confident</span>
+                <h2>Variation 1</h2>
+                <p>Dark gradients, modern SaaS aesthetic with dramatic scroll effects</p>
+                <ul class="features">
+                    <li>Dark theme with high contrast</li>
+                    <li>Working carousel for customers</li>
+                    <li>Number counter animations</li>
+                    <li>Scroll-triggered reveals</li>
+                </ul>
+                <a href="Website-Variations/variation-1-bold-confident/">
+                    View Demo
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+            
+            <!-- Variation 2 -->
+            <div class="card">
+                <span class="card-badge featured">⭐ Ledgerwise-Inspired</span>
+                <h2>Variation 2</h2>
+                <p>World-class scroll choreography with sophisticated interactions</p>
+                <ul class="features">
+                    <li>Multi-phase hero scroll animation</li>
+                    <li>3D flip cards with glows</li>
+                    <li>Progressive word reveal</li>
+                    <li>Video scale-in effect</li>
+                </ul>
+                <a href="Website-Variations/variation-2-ledgerwise-inspired/">
+                    View Demo
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+            
+            <!-- Variation 3 -->
+            <div class="card">
+                <span class="card-badge">Feature-Rich</span>
+                <h2>Variation 3</h2>
+                <p>Interactive tabs and comprehensive feature showcase</p>
+                <ul class="features">
+                    <li>Interactive tabbed interface</li>
+                    <li>Stats bar with counters</li>
+                    <li>Integration showcase</li>
+                    <li>Multi-color accent palette</li>
+                </ul>
+                <a href="Website-Variations/variation-3-feature-rich/">
+                    View Demo
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+            
+            <!-- Variation 4 -->
+            <div class="card">
+                <span class="card-badge">Trust-Focused</span>
+                <h2>Variation 4</h2>
+                <p>Professional, enterprise-grade with testimonials and form</p>
+                <ul class="features">
+                    <li>Bold gradient backgrounds</li>
+                    <li>Demo form in hero</li>
+                    <li>Customer testimonials</li>
+                    <li>Security badges</li>
+                </ul>
+                <a href="Website-Variations/variation-4-trust-focused/">
+                    View Demo
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <h3>📊 Project Specifications</h3>
+            <ul>
+                <li>4 complete homepage variations (~9,000 lines of code)</li>
+                <li>95% ADA compliance (WCAG 2.1 Level AA)</li>
+                <li>Pure vanilla HTML/CSS/JavaScript (no frameworks)</li>
+                <li>WordPress-ready (easy theme integration)</li>
+                <li>Fully responsive (mobile, tablet, desktop)</li>
+                <li>World-class scroll animations (Ledgerwise-quality)</li>
+                <li>Shared animation system (reusable library)</li>
+                <li>All original TruAsset content preserved</li>
+            </ul>
+        </div>
+        
+        <footer>
+            <p>&copy; 2026 TruAsset - All variations ready for client presentation</p>
+            <p style="margin-top: 8px; font-size: 14px;">Built by Val Vinnakota for Brandcave</p>
+        </footer>
+    </div>
+</body>
+</html>

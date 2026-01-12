@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Word Reveal Test</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 40px;
+            line-height: 1.6;
+        }
+        
+        .test-section {
+            min-height: 200vh;
+            padding: 100px 20px;
+        }
+        
+        .reveal-text {
+            font-size: 48px;
+            font-weight: bold;
+            color: #0069BD;
+            line-height: 1.2;
+        }
+        
+        .reveal-word {
+            display: inline-block;
+            margin-right: 0.3em;
+            opacity: 0.2;
+        }
+        
+        .debug {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: black;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Word Reveal Test</h1>
+    <p>Scroll down to see words brighten</p>
+    
+    <div class="test-section" id="testSection">
+        <h2 class="reveal-text">
+            <span class="reveal-word">These</span>
+            <span class="reveal-word">words</span>
+            <span class="reveal-word">should</span>
+            <span class="reveal-word">get</span>
+            <span class="reveal-word">brighter</span>
+            <span class="reveal-word">as</span>
+            <span class="reveal-word">you</span>
+            <span class="reveal-word">scroll</span>
+            <span class="reveal-word">down</span>
+        </h2>
+    </div>
+    
+    <div class="debug" id="debug"></div>
+    
+    <script>
+        const section = document.getElementById('testSection');
+        const words = document.querySelectorAll('.reveal-word');
+        const debugPanel = document.getElementById('debug');
+        
+        function getScrollProgress() {
+            const rect = section.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            const sectionHeight = rect.height;
+            
+            // Progress: 0 when section enters bottom, 1 when section exits top
+            const progress = (viewportHeight - rect.top) / (viewportHeight + sectionHeight);
+            return Math.max(0, Math.min(1, progress));
+        }
+        
+        function updateWords() {
+            const progress = getScrollProgress();
+            const totalWords = words.length;
+            
+            // Reveal range: 10% to 60%
+            const START = 0.1;
+            const END = 0.6;
+            const RANGE = END - START;
+            
+            words.forEach((word, index) => {
+                const wordStart = START + (index / totalWords) * RANGE;
+                const wordEnd = wordStart + (RANGE / totalWords);
+                
+                let opacity;
+                
+                if (progress < wordStart) {
+                    opacity = 0.2; // DIM
+                } else if (progress >= wordEnd) {
+                    opacity = 1.0; // BRIGHT
+                } else {
+                    const t = (progress - wordStart) / (wordEnd - wordStart);
+                    opacity = 0.2 + (t * 0.8); // 0.2 to 1.0
+                }
+                
+                word.style.opacity = opacity.toFixed(2);
+            });
+            
+            // Update debug
+            const firstOpacity = parseFloat(words[0].style.opacity);
+            const lastOpacity = parseFloat(words[words.length - 1].style.opacity);
+            
+            debugPanel.innerHTML = `
+                Progress: ${(progress * 100).toFixed(1)}%<br>
+                First Word: ${firstOpacity.toFixed(2)}<br>
+                Last Word: ${lastOpacity.toFixed(2)}<br>
+                <br>
+                ${progress < 0.1 ? 'All dim' : ''}
+                ${progress >= 0.1 && progress < 0.6 ? 'Brightening...' : ''}
+                ${progress >= 0.6 ? 'All bright!' : ''}
+            `;
+        }
+        
+        // Update on scroll
+        let rafId;
+        window.addEventListener('scroll', () => {
+            if (!rafId) {
+                rafId = requestAnimationFrame(() => {
+                    updateWords();
+                    rafId = null;
+                });
+            }
+        }, { passive: true });
+        
+        // Initial update
+        updateWords();
+    </script>
+</body>
+</html>

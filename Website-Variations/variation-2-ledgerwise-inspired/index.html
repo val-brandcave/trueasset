@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TruAsset - CMMS Software: HTM Management on the Move. Healthcare facilities management made easy.">
+    
+    <title>TruAsset | Healthcare CMMS Software | HTM Management on the Move</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/typography.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/Company Logo/truasset-logo.svg" type="image/svg+xml">
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <header class="header" role="banner">
+        <nav class="nav-container" role="navigation" aria-label="Main navigation">
+            <div class="logo-wrapper">
+                <a href="/" aria-label="TruAsset Home">
+                    <img src="assets/Company Logo/truasset-logo.svg" alt="TruAsset Logo" class="logo" width="158" height="55">
+                </a>
+            </div>
+            
+            <div class="nav-links" role="list">
+                <a href="#features" class="nav-link" role="listitem">Features</a>
+                <a href="#customers" class="nav-link" role="listitem">Customers</a>
+                <a href="#resources" class="nav-link" role="listitem">Resources</a>
+                <a href="#company" class="nav-link" role="listitem">Company</a>
+            </div>
+            
+            <div class="nav-actions">
+                <a href="#contact" class="btn btn-primary nav-cta">Request Demo</a>
+                
+                <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        
+        <!-- Hero Section with Scroll Animation -->
+        <div class="hero-scroll-container" data-scroll-section="hero">
+            <!-- Fixed Background Gradients -->
+            <div class="hero-background" aria-hidden="true">
+                <!-- Initial gradient layer -->
+                <div class="gradient-layer" data-gradient="initial">
+                    <div class="gradient-blob-blue"></div>
+                    <div class="gradient-blob-amber"></div>
+                </div>
+                
+                <!-- Convergence glow layer -->
+                <div class="gradient-layer" data-gradient="convergence"></div>
+                
+                <!-- Final blue screen layer -->
+                <div class="gradient-layer" data-gradient="final"></div>
+            </div>
+            
+            <!-- Sticky Hero Wrapper -->
+            <div class="hero-sticky-wrapper">
+                <!-- Shiny Border Lines -->
+                <div class="shiny-border shiny-border-vertical shiny-border-left" aria-hidden="true"></div>
+                <div class="shiny-border shiny-border-vertical shiny-border-right" aria-hidden="true"></div>
+                <div class="shiny-border shiny-border-horizontal shiny-border-bottom" aria-hidden="true"></div>
+                
+                <!-- Connection Streams (SVG) -->
+                <svg class="connection-streams" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
+                    <defs>
+                        <!-- Gradients for streams -->
+                        <linearGradient id="streamGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#93c5fd" stop-opacity="0.3" />
+                            <stop offset="100%" stop-color="#60a5fa" />
+                        </linearGradient>
+                        
+                        <linearGradient id="streamGradient2" x1="100%" y1="0%" x2="0%" y2="0%">
+                            <stop offset="0%" stop-color="#c4b5fd" stop-opacity="0.3" />
+                            <stop offset="100%" stop-color="#a78bfa" />
+                        </linearGradient>
+                        
+                        <linearGradient id="streamGradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#fcd34d" stop-opacity="0.3" />
+                            <stop offset="100%" stop-color="#fbbf24" />
+                        </linearGradient>
+                        
+                        <linearGradient id="streamGradient4" x1="100%" y1="0%" x2="0%" y2="0%">
+                            <stop offset="0%" stop-color="#fda4af" stop-opacity="0.3" />
+                            <stop offset="100%" stop-color="#fb7185" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- Path 1: Top-left (Clinical Engineering) -->
+                    <path d="M 0 150 Q 150 150, 250 250 T 500 300" 
+                          fill="none" 
+                          stroke="url(#streamGradient1)" 
+                          class="stream-path" 
+                          data-stream="1" />
+                    
+                    <!-- Path 2: Top-right (Maintenance) -->
+                    <path d="M 1000 120 Q 850 120, 750 220 T 500 300" 
+                          fill="none" 
+                          stroke="url(#streamGradient2)" 
+                          class="stream-path" 
+                          data-stream="2" />
+                    
+                    <!-- Path 3: Bottom-left (Environmental Services) -->
+                    <path d="M 0 480 Q 150 480, 250 380 T 500 300" 
+                          fill="none" 
+                          stroke="url(#streamGradient3)" 
+                          class="stream-path" 
+                          data-stream="3" />
+                    
+                    <!-- Path 4: Bottom-right (ISOs) -->
+                    <path d="M 1000 450 Q 850 450, 750 370 T 500 300" 
+                          fill="none" 
+                          stroke="url(#streamGradient4)" 
+                          class="stream-path" 
+                          data-stream="4" />
+                </svg>
+                
+                <!-- Stakeholder Icons -->
+                <div class="stakeholder-icons" aria-hidden="true">
+                    <div class="stakeholder-icon" data-icon="1">
+                        <div class="icon-circle icon-blue">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <span class="icon-label">Clinical Engineering</span>
+                    </div>
+                    
+                    <div class="stakeholder-icon" data-icon="2">
+                        <div class="icon-circle icon-purple">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 7h-9"></path>
+                                <path d="M14 17H5"></path>
+                                <circle cx="17" cy="17" r="3"></circle>
+                                <circle cx="7" cy="7" r="3"></circle>
+                            </svg>
+                        </div>
+                        <span class="icon-label">Maintenance</span>
+                    </div>
+                    
+                    <div class="stakeholder-icon" data-icon="3">
+                        <div class="icon-circle icon-amber">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
+                        </div>
+                        <span class="icon-label">Environmental Services</span>
+                    </div>
+                    
+                    <div class="stakeholder-icon" data-icon="4">
+                        <div class="icon-circle icon-rose">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="3" y1="9" x2="21" y2="9"></line>
+                                <line x1="9" y1="21" x2="9" y2="9"></line>
+                            </svg>
+                        </div>
+                        <span class="icon-label">ISOs</span>
+                    </div>
+                </div>
+                
+                <!-- App Mockup -->
+                <div class="app-mockup">
+                    <div class="laptop-glow"></div>
+                    <div class="app-screen">
+                        <!-- Browser Chrome -->
+                        <div class="browser-chrome">
+                            <div class="browser-dots">
+                                <div class="browser-dot dot-red"></div>
+                                <div class="browser-dot dot-yellow"></div>
+                                <div class="browser-dot dot-green"></div>
+                            </div>
+                            <div class="browser-address-bar">
+                                <div class="address-bar-input">app.truasset.com</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Screen Content -->
+                        <div class="screen-content">
+                            <div class="screen-placeholder">
+                                <div class="placeholder-bar"></div>
+                                <div class="placeholder-grid">
+                                    <div class="placeholder-card"></div>
+                                    <div class="placeholder-card"></div>
+                                    <div class="placeholder-card"></div>
+                                </div>
+                                <div class="placeholder-large"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hero Content (Text & CTAs) -->
+                <div class="hero-content">
+                    <h1 class="hero-headline">
+                        CMMS Software: HTM Management on the Move
+                    </h1>
+                    
+                    <p class="hero-subtitle">
+                        TruAsset's computerized maintenance management, or CMMS software, enables you to plan, execute and manage all aspects of your service operations from the palm of your hand.
+                    </p>
+                    
+                    <div class="hero-cta-group">
+                        <a href="#contact" class="btn btn-primary btn-lg">Request Demo</a>
+                        <a href="#video" class="btn btn-secondary btn-lg">Watch Video</a>
+                    </div>
+                    
+                    <!-- App Mockup (Below buttons) -->
+                    <div class="app-mockup-inline">
+                        <div class="laptop-glow"></div>
+                        <div class="app-screen">
+                            <!-- Browser Chrome -->
+                            <div class="browser-chrome">
+                                <div class="browser-dots">
+                                    <div class="browser-dot dot-red"></div>
+                                    <div class="browser-dot dot-yellow"></div>
+                                    <div class="browser-dot dot-green"></div>
+                                </div>
+                                <div class="browser-address-bar">
+                                    <div class="address-bar-input">app.truasset.com</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Screen Content -->
+                            <div class="screen-content">
+                                <div class="screen-placeholder">
+                                    <div class="placeholder-bar"></div>
+                                    <div class="placeholder-grid">
+                                        <div class="placeholder-card"></div>
+                                        <div class="placeholder-card"></div>
+                                        <div class="placeholder-card"></div>
+                                    </div>
+                                    <div class="placeholder-large"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Section (Scales in as hero scrolls out) -->
+        <section class="video-section" data-scroll-section="video">
+            <div class="video-sticky-wrapper">
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe 
+                            src="https://player.vimeo.com/video/453088801?h=8d0e8c2e3e&title=0&byline=0&portrait=0"
+                            width="100%"
+                            height="100%"
+                            frameborder="0"
+                            allow="autoplay; fullscreen; picture-in-picture"
+                            allowfullscreen
+                            title="TruAsset Product Overview">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Promises/Compliance Section with Flip Cards -->
+        <section class="promises-section" data-scroll-section="promises">
+            <div class="promises-sticky-content">
+                <div class="promises-content-wrapper">
+                    <div class="promises-inner">
+                        <!-- Section Header -->
+                        <div class="section-header">
+                            <p class="section-eyebrow">Trusted & Compliant</p>
+                            <h2 class="section-title">In Compliance With Leading Organizations Nationwide</h2>
+                        </div>
+                        
+                        <!-- Flip Cards Grid -->
+                        <div class="flip-cards-grid">
+                            <!-- Card 1 -->
+                            <div class="flip-card-wrapper">
+                                <div class="flip-card" tabindex="0" role="button" aria-label="Compliance card 1, click to flip">
+                                    <div class="card-glow"></div>
+                                    <div class="card-glow-blue"></div>
+                                    <div class="flip-card-inner">
+                                        <!-- Front -->
+                                        <div class="flip-card-face flip-card-front">
+                                            <div class="card-shine">
+                                                <div class="shine-effect"></div>
+                                            </div>
+                                            <div class="flip-card-content">
+                                                <div class="card-icon-wrapper">
+                                                    <div class="card-icon">
+                                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                            <path d="M9 11l3 3L22 4"></path>
+                                                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <h3 class="card-title">HIPAA Compliant</h3>
+                                            </div>
+                                            <div class="flip-indicator">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"></path>
+                                                </svg>
+                                                <span>Hover to flip</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Back -->
+                                        <div class="flip-card-face flip-card-back">
+                                            <div class="card-pattern"></div>
+                                            <div class="flip-card-back-content">
+                                                <p class="card-description">
+                                                    TruAsset maintains strict HIPAA compliance standards, ensuring all patient and healthcare data is protected with enterprise-grade security.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Card 2 -->
+                            <div class="flip-card-wrapper">
+                                <div class="flip-card" tabindex="0" role="button" aria-label="Compliance card 2, click to flip">
+                                    <div class="card-glow"></div>
+                                    <div class="card-glow-blue"></div>
+                                    <div class="flip-card-inner">
+                                        <!-- Front -->
+                                        <div class="flip-card-face flip-card-front">
+                                            <div class="card-shine">
+                                                <div class="shine-effect" style="animation-delay: 1.5s;"></div>
+                                            </div>
+                                            <div class="flip-card-content">
+                                                <div class="card-icon-wrapper">
+                                                    <div class="card-icon">
+                                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <h3 class="card-title">SOC 2 Certified</h3>
+                                            </div>
+                                            <div class="flip-indicator">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"></path>
+                                                </svg>
+                                                <span>Hover to flip</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Back -->
+                                        <div class="flip-card-face flip-card-back">
+                                            <div class="card-pattern"></div>
+                                            <div class="flip-card-back-content">
+                                                <p class="card-description">
+                                                    Our SOC 2 Type II certification demonstrates our commitment to security, availability, and confidentiality of your data.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Card 3 -->
+                            <div class="flip-card-wrapper">
+                                <div class="flip-card" tabindex="0" role="button" aria-label="Compliance card 3, click to flip">
+                                    <div class="card-glow"></div>
+                                    <div class="card-glow-blue"></div>
+                                    <div class="flip-card-inner">
+                                        <!-- Front -->
+                                        <div class="flip-card-face flip-card-front">
+                                            <div class="card-shine">
+                                                <div class="shine-effect" style="animation-delay: 2s;"></div>
+                                            </div>
+                                            <div class="flip-card-content">
+                                                <div class="card-icon-wrapper">
+                                                    <div class="card-icon">
+                                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <h3 class="card-title">20+ Years Proven</h3>
+                                            </div>
+                                            <div class="flip-indicator">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"></path>
+                                                </svg>
+                                                <span>Hover to flip</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Back -->
+                                        <div class="flip-card-face flip-card-back">
+                                            <div class="card-pattern"></div>
+                                            <div class="flip-card-back-content">
+                                                <p class="card-description">
+                                                    Trusted by healthcare facilities for over two decades, TruAsset has a proven track record in healthcare technology management.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Compliance Logos Ticker -->
+                <div class="compliance-logos-ticker">
+                    <div class="compliance-ticker-track">
+                        <!-- Repeat logos for seamless loop -->
+                        <img src="assets/Compliance Orgs Logos/logo-1.svg" alt="Compliance Organization" class="compliance-ticker-logo">
+                        <img src="assets/Compliance Orgs Logos/logo-2.svg" alt="Compliance Organization" class="compliance-ticker-logo">
+                        <img src="assets/Compliance Orgs Logos/logo-3.svg" alt="Compliance Organization" class="compliance-ticker-logo">
+                        <img src="assets/Compliance Orgs Logos/logo-4.svg" alt="Compliance Organization" class="compliance-ticker-logo">
+                        <img src="assets/Compliance Orgs Logos/logo-5.svg" alt="Compliance Organization" class="compliance-ticker-logo">
+                        <!-- Duplicate for seamless loop -->
+                        <img src="assets/Compliance Orgs Logos/logo-1.svg" alt="Compliance Organization" class="compliance-ticker-logo">
+                        <img src="assets/Compliance Orgs Logos/logo-2.svg" alt="Compliance Organization" class="compliance-ticker-logo">
+                        <img src="assets/Compliance Orgs Logos/logo-3.svg" alt="Compliance Organization" class="compliance-ticker-logo">
+                        <img src="assets/Compliance Orgs Logos/logo-4.svg" alt="Compliance Organization" class="compliance-ticker-logo">
+                        <img src="assets/Compliance Orgs Logos/logo-5.svg" alt="Compliance Organization" class="compliance-ticker-logo">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Word Reveal Section -->
+        <section class="word-reveal-section" data-scroll-section="word-reveal">
+            <div class="dot-grid-overlay" aria-hidden="true">
+                <div class="dot-grid-pattern"></div>
+            </div>
+            
+            <div class="word-reveal-sticky">
+                <div class="word-reveal-content">
+                    <p class="reveal-subtitle">Set New Expectations for Facilities Management</p>
+                    <h2 class="reveal-text">
+                        <span class="reveal-word">TruAsset</span>
+                        <span class="reveal-word">was</span>
+                        <span class="reveal-word">created</span>
+                        <span class="reveal-word">specifically</span>
+                        <span class="reveal-word">with</span>
+                        <span class="reveal-word">healthcare</span>
+                        <span class="reveal-word">facilities</span>
+                        <span class="reveal-word">management</span>
+                        <span class="reveal-word">in</span>
+                        <span class="reveal-word">mind.</span>
+                        <span class="reveal-word">It</span>
+                        <span class="reveal-word">empowers</span>
+                        <span class="reveal-word">technicians</span>
+                        <span class="reveal-word">while</span>
+                        <span class="reveal-word">providing</span>
+                        <span class="reveal-word">managers</span>
+                        <span class="reveal-word">with</span>
+                        <span class="reveal-word">real-time</span>
+                        <span class="reveal-word">data.</span>
+                    </h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customers Section -->
+        <section id="customers" class="customers-section">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-eyebrow">Who We Serve</p>
+                    <h2 class="section-title">Built for High-Performance Healthcare Teams</h2>
+                </div>
+                
+                <div class="customers-grid">
+                    <!-- Customer 1 -->
+                    <div class="customer-card">
+                        <div class="customer-image">
+                            <img src="assets/Customers Images/maintanence-man.png" alt="Maintenance professional" loading="lazy">
+                        </div>
+                        <h3 class="customer-title">Maintenance</h3>
+                        <p class="customer-description">Streamline work orders, track assets, and manage preventive maintenance with ease.</p>
+                    </div>
+                    
+                    <!-- Customer 2 -->
+                    <div class="customer-card">
+                        <div class="customer-image">
+                            <img src="assets/Customers Images/clinical-engineering-woman.png" alt="Clinical engineering professional" loading="lazy">
+                        </div>
+                        <h3 class="customer-title">Clinical Engineering</h3>
+                        <p class="customer-description">Maintain medical equipment compliance, track certifications, and ensure patient safety.</p>
+                    </div>
+                    
+                    <!-- Customer 3 -->
+                    <div class="customer-card">
+                        <div class="customer-image">
+                            <img src="assets/Customers Images/environmental-services-woman.png" alt="Environmental services professional" loading="lazy">
+                        </div>
+                        <h3 class="customer-title">Environmental Services</h3>
+                        <p class="customer-description">Manage facilities, coordinate cleaning schedules, and track service requests efficiently.</p>
+                    </div>
+                    
+                    <!-- Customer 4 -->
+                    <div class="customer-card">
+                        <div class="customer-image">
+                            <img src="assets/Customers Images/independant-services-org-woman.png" alt="Independent service organization professional" loading="lazy">
+                        </div>
+                        <h3 class="customer-title">Independent Service Organizations</h3>
+                        <p class="customer-description">Deliver exceptional service, track multiple clients, and manage field technicians seamlessly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-eyebrow">Powerful Features</p>
+                    <h2 class="section-title">Easy for Technicians; Data-Driven for Managers</h2>
+                </div>
+                
+                <div class="features-grid">
+                    <!-- Feature 1 -->
+                    <div class="feature-card">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        <h3 class="feature-title">Work Order Management</h3>
+                        <p class="feature-description">Create, assign, and track work orders in real-time. Complete visibility into all maintenance activities.</p>
+                        <a href="#work-orders" class="feature-learn-more">
+                            Learn more
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <!-- Feature 2 -->
+                    <div class="feature-card">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                        <h3 class="feature-title">Asset Management</h3>
+                        <p class="feature-description">Track all equipment, maintenance history, and compliance documentation in one central location.</p>
+                        <a href="#asset-management" class="feature-learn-more">
+                            Learn more
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <!-- Feature 3 -->
+                    <div class="feature-card">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                        <h3 class="feature-title">P.O. & Invoice Tracking</h3>
+                        <p class="feature-description">Manage purchase orders and track invoices with complete financial oversight.</p>
+                        <a href="#po-tracking" class="feature-learn-more">
+                            Learn more
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <!-- Feature 4 -->
+                    <div class="feature-card">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                        <h3 class="feature-title">Reporting & Analytics</h3>
+                        <p class="feature-description">Comprehensive reports and dashboards provide insights into all aspects of your operations.</p>
+                        <a href="#reporting" class="feature-learn-more">
+                            Learn more
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <!-- Feature 5 -->
+                    <div class="feature-card">
+                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <h3 class="feature-title">Service Request Systems</h3>
+                        <p class="feature-description">Streamline service requests from submission to completion with automated workflows.</p>
+                        <a href="#service-requests" class="feature-learn-more">
+                            Learn more
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                    
+                    <!-- Feature 6 - View All Features CTA Card -->
+                    <div class="feature-card feature-card-cta">
+                        <svg class="feature-icon-large" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="8" y1="6" x2="21" y2="6"></line>
+                            <line x1="8" y1="12" x2="21" y2="12"></line>
+                            <line x1="8" y1="18" x2="21" y2="18"></line>
+                            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                        </svg>
+                        <h3 class="feature-title">Explore All Features</h3>
+                        <p class="feature-description">Discover our complete suite of healthcare facilities management tools and capabilities.</p>
+                        <a href="#all-features" class="feature-cta-button">
+                            View All Features
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2 class="cta-title">Facilities Management Doesn't Need to be Hard</h2>
+                <p class="cta-description">
+                    Start by requesting a one-on-one demo with TruAsset today and see how we can transform your healthcare facilities management.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="#contact" class="btn btn-primary btn-lg">Request Demo</a>
+                    <a href="tel:+12142761280" class="btn btn-secondary btn-lg">Call: 214-276-1280</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <!-- Main layout: Left (brand + CTA) | Right (link columns) -->
+            <div class="footer-top">
+                <!-- Left: Brand section -->
+                <div class="footer-brand">
+                    <img src="assets/Company Logo/truasset-logo.svg" alt="TruAsset" class="footer-logo">
+                    <p class="footer-tagline">
+                        CMMS Software for Healthcare. Stop managing manually. Start managing efficiently.
+                    </p>
+                    <a href="#contact" class="btn btn-primary btn-lg">Request Demo</a>
+                </div>
+                
+                <!-- Right: Link columns -->
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Features</h4>
+                        <nav class="footer-links" role="navigation" aria-label="Features links">
+                            <a href="#work-orders" class="footer-link">Work Order Management</a>
+                            <a href="#asset-management" class="footer-link">Asset Management</a>
+                            <a href="#reporting" class="footer-link">Reporting</a>
+                            <a href="#mobile" class="footer-link">Mobile Access</a>
+                        </nav>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Solutions</h4>
+                        <nav class="footer-links" role="navigation" aria-label="Solutions links">
+                            <a href="#maintenance" class="footer-link">Maintenance</a>
+                            <a href="#clinical-engineering" class="footer-link">Clinical Engineering</a>
+                            <a href="#environmental-services" class="footer-link">Environmental Services</a>
+                            <a href="#isos" class="footer-link">ISOs</a>
+                        </nav>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Company</h4>
+                        <nav class="footer-links" role="navigation" aria-label="Company links">
+                            <a href="#about" class="footer-link">About</a>
+                            <a href="#pricing" class="footer-link">Pricing</a>
+                            <a href="#contact" class="footer-link">Contact</a>
+                        </nav>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Legal</h4>
+                        <nav class="footer-links" role="navigation" aria-label="Legal links">
+                            <a href="#privacy" class="footer-link">Privacy Policy</a>
+                            <a href="#terms" class="footer-link">Terms of Service</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom section: Copyright & Compliance -->
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2026 TruAsset. All rights reserved.</p>
+                <p class="footer-compliance">HIPAA Compliant Healthcare Technology Provider</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="../shared/js/scroll-animations.js"></script>
+    <script src="js/hero-scroll-animation.js"></script>
+    <script src="js/flip-cards.js"></script>
+    <script src="js/word-reveal-FIXED.js"></script>
+    <script src="js/scroll-reveals.js"></script>
+    <script src="js/navigation.js"></script>
+</body>
+</html>
