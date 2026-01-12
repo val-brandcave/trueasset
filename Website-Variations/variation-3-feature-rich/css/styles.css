@@ -203,6 +203,22 @@ body {
     margin-top: 68px;
     background: linear-gradient(180deg, var(--color-bg-secondary) 0%, var(--color-bg-primary) 100%);
     overflow: hidden;
+    min-height: 100vh; /* Allow scroll-based animations */
+}
+
+/* Animated gradient overlay for scroll effect */
+.hero-gradient-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    background: linear-gradient(135deg, 
+        rgba(0, 105, 189, 0.15) 0%, 
+        rgba(16, 185, 129, 0.10) 50%, 
+        rgba(139, 92, 246, 0.12) 100%
+    );
+    transition: opacity 0.6s ease;
 }
 
 /* Data Visualization Background */
@@ -435,6 +451,8 @@ body {
     width: 100%;
     height: auto;
     border-radius: var(--radius-2xl);
+    opacity: 1;
+    transition: opacity 0.6s ease; /* Smooth fade */
 }
 
 .product-overlay {
