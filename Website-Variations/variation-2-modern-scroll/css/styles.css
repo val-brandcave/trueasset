@@ -1673,6 +1673,7 @@ body {
     }
 }
 
+/* Footer column titles - changed from h4 to h3 for proper hierarchy */
 .footer-column-title {
     font-size: var(--font-size-base);
     font-weight: var(--font-weight-semibold);
@@ -1688,7 +1689,7 @@ body {
 
 .footer-link {
     font-size: var(--font-size-base);
-    color: var(--color-text-secondary);
+    color: #525252;
     transition: color var(--transition-fast);
 }
 
@@ -1717,12 +1718,12 @@ body {
 
 .footer-copyright {
     font-size: var(--font-size-sm);
-    color: var(--color-text-tertiary);
+    color: #525252;
 }
 
 .footer-compliance {
     font-size: var(--font-size-sm);
-    color: var(--color-text-tertiary);
+    color: #525252;
 }
 
 /* ============================================================================
